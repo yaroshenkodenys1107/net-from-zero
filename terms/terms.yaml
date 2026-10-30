@@ -1,0 +1,11 @@
+# Реестр терминов. Формат — в CONVENTIONS.md.
+# Пополняется по мере написания подглав. Пример записи:
+#
+# - term: TCP
+#   kind: abbr
+#   expansion: "Transmission Control Protocol — протокол управления передачей"
+#   introduced_in: "11"
+#   defined_via: [порт, пакет, соединение]
+#   definition: "Протокол, который ..."
+#   forms: []
+[]
