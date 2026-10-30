@@ -1,0 +1,26 @@
+# Создаёт метки для issues. Запускается при изменении этого файла
+# или вручную (Actions → labels → Run workflow).
+name: labels
+
+on:
+  push:
+    branches: [main]
+    paths: [".github/workflows/labels.yml"]
+  workflow_dispatch:
+
+permissions:
+  issues: write
+
+jobs:
+  labels:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Создать или обновить метки
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          gh label create "непонятно" --color FBCA04 \
+            --description "Автору непонятен текст подглавы" --force
+          gh label create "нужен человек" --color D93F0B \
+            --description "Три круга проверки не сошлись" --force
